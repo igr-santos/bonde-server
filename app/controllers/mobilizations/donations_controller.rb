@@ -21,11 +21,6 @@ class Mobilizations::DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(*policy(@donation || Donation.new).permitted_attributes).tap do |whitelisted|
-      customer_params = params[:donation][:customer]
-      if customer_params
-        whitelisted[:donation][:customer] = customer_params
-      end
-    end
+    params.require(:donation).permit(*policy(@donation || Donation.new).permitted_attributes)
   end
 end
