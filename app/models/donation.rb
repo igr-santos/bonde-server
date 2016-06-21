@@ -33,10 +33,6 @@ class Donation < ActiveRecord::Base
   end
 
   def send_mail
-    begin
-      DonationsMailer.thank_you_email(self).deliver_later!
-    rescue StandardError => e
-      logger.error("\n==> ERROR SENDING DONATION EMAIL: #{e.inspect}\n")
-    end
+    DonationsMailer.thank_you_email(self).deliver_now
   end
 end
