@@ -10,4 +10,7 @@ services:
 - redis-server
 deploy:
   provider: script
-  script: bin/deploy.sh
+  script: ./bin/deploy.sh
+  on:
+    tags: true
+    all_branches: true
