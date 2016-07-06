@@ -10,4 +10,4 @@ services:
 - redis-server
 deploy:
   provider: script
-  script: scripts/deploy.sh
+  script: bin/deploy.sh
