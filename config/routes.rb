@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :activist_matches, only: [:create]
+  resources :activist_pressures, only: [:create]
   resources :uploads, only: [:index]
   resources :organizations, only: [:index]
   mount_devise_token_auth_for 'User', at: '/auth'
